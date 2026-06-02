@@ -1,34 +1,28 @@
-const formulario = document.getElementById("meuFormulario");
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Validação de Formulário</title>
+</head>
+<body>
 
-formulario.addEventListener("submit", function(event) {
+  <h1>Cadastro</h1>
 
-  const nome  = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const idade = document.getElementById("idade").value;
+  <form id="meuFormulario">
+    <label>Nome:</label><br>
+    <input type="text" id="nome"><br><br>
 
-  const erro = document.getElementById("erro");
-  erro.textContent = "";
-  erro.style.color = "red";
+    <label>Email:</label><br>
+    <input type="text" id="email"><br><br>
 
-  if (nome === "") {
-    erro.textContent = "O nome não pode estar vazio.";
-    event.preventDefault();
-    return;
-  }
+    <label>Idade:</label><br>
+    <input type="number" id="idade"><br><br>
 
-  if (!email.includes("@")) {
-    erro.textContent = "O email deve conter @.";
-    event.preventDefault();
-    return;
-  }
+    <button type="submit">Enviar</button>
+  </form>
 
-  if (idade <= 0 || idade === "") {
-    erro.textContent = "A idade deve ser maior que 0.";
-    event.preventDefault();
-    return;
-  }
+  <p id="erro" style="color: red;"></p>
 
-  erro.style.color = "green";
-  erro.textContent = "Formulário enviado com sucesso!";
-  event.preventDefault();
-});
+  <script src="validacao.js"></script>
+</body>
+</html>
